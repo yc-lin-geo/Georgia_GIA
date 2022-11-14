@@ -11,7 +11,8 @@ st.set_page_config(layout="wide",page_title="Deep_GIA")
 st.title("A deep-learning based glacial isostatic adjustment emulator")
 #st.sidebar.markdown("# Main page 🎈")
 st.markdown("""
-            Welcome to Deep GIA page! 
+            Welcome to GEORGIA: a Graphic neural network based EmulatOR for Glacial Isostatic Adjustment! This web-based app
+            
             """)
 #----------------------Define Functions---------------------------
 def cal_ice_v(ice):
@@ -148,12 +149,12 @@ def emulate_GIA():
     norm_syn_ice[-1,:] = st.session_state.modern_topo_norm
     
     #transfer numpy array to tensors
-    x_syn = torch.tensor(np.swapaxes(norm_syn_ice,0,1))[None,None,:,:].cuda().float()
+    x_syn = torch.tensor(np.swapaxes(norm_syn_ice,0,1))[None,None,:,:].cpu().float()
     x_syn[x_syn>15] = 15
     x_syn[x_syn<-15] = -15 
 
     #emulate rsl for both ice history and transfer them back to numpy array
-    st.session_state.rsl_syn = model(x_syn).cpu().detach().numpy() 
+    st.session_state.rsl_syn = model(x_syn).detach().numpy() 
     #transfer normlized prediction back to original field
     st.session_state.rsl_syn_pred = st.session_state.rsl_syn[0,0]*st.session_state.heal16_output_std[:,None]+st.session_state.heal16_output_mean[:,None]
     st.write('## Emulation complete! Click plotting for visulization!')       
@@ -260,7 +261,7 @@ st.session_state.modern_ice = np.load('./data/ice_0_healpix16.npy')
 st.session_state.healpix16_NA_matrices = np.load('./data/healpix16_NA_matrcies.npy')
 st.session_state.healpix16_NA_index = np.sum(st.session_state.healpix16_NA_matrices,axis=0)[5]!=0
 #load emulator
-model = torch.load('./emulator/GIA_emulator')
+model = torch.load('./emulator/GIA_emulator').to('cpu')
 
 #---------------------Set ice model parameters--------------------
 # Sessions tate initialise
