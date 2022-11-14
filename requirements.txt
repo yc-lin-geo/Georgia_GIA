@@ -1,3 +1,7 @@
+# pygsp
+--find-links git+https://github.com/epfl-lts2/pygsp.git@39a0665f637191152605911cf209fc16a36e5ae9#egg=PyGSP
+pygsp
+
 cycler==0.11.0
 dask==2022.10.2
 deepdiff==6.2.1
@@ -7,7 +11,6 @@ matplotlib==3.6.2
 numcodecs==0.10.2
 numpy==1.23.4
 pandas==1.5.1
-PyGSP==0.5.1
 rechunker==0.5.0
 scipy==1.9.3
 Shapely==1.8.5.post1
