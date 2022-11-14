@@ -1,7 +1,3 @@
-# pygsp
---find-links git+https://github.com/epfl-lts2/pygsp.git@39a0665f637191152605911cf209fc16a36e5ae9#egg=PyGSP
-pygsp
-
 cycler==0.11.0
 dask==2022.10.2
 deepdiff==6.2.1
