@@ -1,7 +1,6 @@
 import streamlit as st
 import numpy as np
 from scipy import interpolate
-import pygsp as pg
 import healpy as hp
 from matplotlib import pyplot as plt
 import os
