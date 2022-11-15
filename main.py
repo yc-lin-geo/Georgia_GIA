@@ -8,18 +8,9 @@ import torch
 #------------------Try to import a subroutine----------------------------
 import subprocess
 import sys
-import time
-
-try:
-  # replace "yourpackage" with the package you want to import
-  import pygsp
-
 # This block executes only on the first run when your package isn't installed
 except ModuleNotFoundError as e:
-  subprocess.Popen([f'{sys.executable} -m pip install git+https://github.com/epfl-lts2/pygsp.git@39a0665f637191152605911cf209fc16a36e5ae9#egg=PyGSP'], shell=True)
-  # wait for subprocess to install package before running your actual code below
-  time.sleep(20)
-
+    subprocess.Popen([f'{sys.executable} -m pip install git+https://github.com/epfl-lts2/pygsp.git@39a0665f637191152605911cf209fc16a36e5ae9#egg=PyGSP'], shell=True)
 #---------------------Seting page layout--------------------------
 st.set_page_config(layout="wide",page_title="Deep_GIA")
 st.title("A deep-learning based glacial isostatic adjustment emulator")
