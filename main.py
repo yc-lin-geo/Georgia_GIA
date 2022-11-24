@@ -266,7 +266,13 @@ def plot_rsl_comparison():
             figure9
 
 #-----------------------Load Inputs-------------------------------
+@st.cache
+def load_model(max_entries=20):
+	#load emulator
+	model = torch.load('./emulator/GIA_emulator').to('cpu')
+	return model
 
+model = load_model()
 #Load mean and standard deviation for inputs and outputs for normlization
 st.session_state.heal16_input_mean = np.load('./data/heal16_input_mean.npy')
 st.session_state.heal16_input_std = np.load('./data/heal16_input_std.npy')
@@ -283,8 +289,6 @@ st.session_state.modern_ice = np.load('./data/ice_0_healpix16.npy')
 #Load ice histories from previous studies
 st.session_state.healpix16_NA_matrices = np.load('./data/healpix16_NA_matrcies.npy')
 st.session_state.healpix16_NA_index = np.sum(st.session_state.healpix16_NA_matrices,axis=0)[5]!=0
-#load emulator
-model = torch.load('./emulator/GIA_emulator').to('cpu')
 
 #---------------------Set ice model parameters--------------------
 # Sessions tate initialise
@@ -348,7 +352,7 @@ st.sidebar.slider("NAIS temporal factor 1",
 st.sidebar.slider("NAIS temporal factor 2",
                 min_value = -3,
                 max_value = 3,
-                step=3,
+                step=1,
                 key='NA_r_2') 
 
 st.sidebar.slider("Ice history plotting time (1-24 ka BP)",
