@@ -274,20 +274,20 @@ def load_model(max_entries=20):
 
 model = load_model()
 #Load mean and standard deviation for inputs and outputs for normlization
-st.session_state.heal16_input_mean = np.load('./data/heal16_input_mean.npy',allow_pickle=True)
-st.session_state.heal16_input_std = np.load('./data/heal16_input_std.npy',allow_pickle=True)
-st.session_state.heal16_output_mean = np.load('./data/heal16_output_mean.npy',allow_pickle=True)
-st.session_state.heal16_output_std = np.load('./data/heal16_output_std.npy',allow_pickle=True) 
+st.session_state.heal16_input_mean = np.load('./data/heal16_input_mean.npy')
+st.session_state.heal16_input_std = np.load('./data/heal16_input_std.npy')
+st.session_state.heal16_output_mean = np.load('./data/heal16_output_mean.npy')
+st.session_state.heal16_output_std = np.load('./data/heal16_output_std.npy') 
 #Load mean ice history based on all training dataset and its corresponding RSL history for comparison
-st.session_state.mean_ice_his = np.load('./data/heal16_input_mean_his.npy',allow_pickle=True)
-st.session_state.rsl_mean_pred = np.load('./data/healpix16_mean_ice_rsl.npy',allow_pickle=True)
+st.session_state.mean_ice_his = np.load('./data/heal16_input_mean_his.npy')
+st.session_state.rsl_mean_pred = np.load('./data/healpix16_mean_ice_rsl.npy')
 
 #Load modern ice thickness and topography
-st.session_state.modern_topo = np.load('./data/modern_topo_healpix16.npy',allow_pickle=True)
-st.session_state.modern_topo_norm = np.load('./data/modern_topo_norm.npy',allow_pickle=True)
-st.session_state.modern_ice = np.load('./data/ice_0_healpix16.npy',allow_pickle=True)
+st.session_state.modern_topo = np.load('./data/modern_topo_healpix16.npy')
+st.session_state.modern_topo_norm = np.load('./data/modern_topo_norm.npy')
+st.session_state.modern_ice = np.load('./data/ice_0_healpix16.npy')
 #Load ice histories from previous studies
-st.session_state.healpix16_NA_matrices = np.load('./data/healpix16_NA_matrcies.npy',allow_pickle=True)
+st.session_state.healpix16_NA_matrices = np.load('./data/healpix16_NA_matrcies.npy')
 st.session_state.healpix16_NA_index = np.sum(st.session_state.healpix16_NA_matrices,axis=0)[5]!=0
 
 #---------------------Set ice model parameters--------------------
