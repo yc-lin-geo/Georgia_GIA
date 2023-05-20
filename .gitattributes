@@ -1,11 +1,8 @@
 emulator/GIA_emulator filter=lfs diff=lfs merge=lfs -text
 *.psd filter=lfs diff=lfs merge=lfs -text
 data filter=lfs diff=lfs merge=lfs -text
-deep_gia.py filter=lfs diff=lfs merge=lfs -text
 __pycache__ filter=lfs diff=lfs merge=lfs -text
 requirements.txt filter=lfs diff=lfs merge=lfs -text
 emulator filter=lfs diff=lfs merge=lfs -text
-GEORGIA_Tutorial.ipynb filter=lfs diff=lfs merge=lfs -text
-main.py filter=lfs diff=lfs merge=lfs -text
 modules filter=lfs diff=lfs merge=lfs -text
 pygsp filter=lfs diff=lfs merge=lfs -text
