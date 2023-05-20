@@ -35,4 +35,14 @@ It should be noted that GEROGIA was written and tested with Python 3.9.7 and Jup
 * **data/ice_0_healpix16.npy** - Modern ice thickness expressed in 16-degree Healpix.
 * **data/modern_topo_healpix16.npy** - Modern topography data expressed in 16-degree Healpix.
 
+## Co-authors
+* **Pippa Whitehouse**
+* **Andrew Valentine**
+* **Sarah Woodroffe**
 
+## License
+
+This project is licensed under the MIT License - see the [LICENSE] file for details
+
+## Acknowledgements
+We thank Roger Creel and Lev Tarasov for their constructive comments that significantly improve this paper. The authors thank Glenn A. Milne for providing the code used to perform the GIA modelling, Parviz Ajourlou and Ryan Love for useful discussion. Y.L. was supported by a China Scholarship Council - Durham University joint scholarship. A.P.V acknowledges support from the Australian Research Council under grant DP200100053. This work made use of the facilities of the N8 Centre of Excellence in Computationally Intensive Research (N8 CIR) provided and funded by the N8 research partnership and EPSRC (Grant No. EP/T022167/1). The Centre is co-ordinated by the Universities of Durham, Manchester and York. The authors acknowledge the collaborative research opportunities created by PALSEA, a working group of the International Union for Quaternary Sciences (INQUA) and Past Global Changes (PAGES), which in turn received support from the Swiss Academy of Sciences and the Chinese Academy of Sciences. 
