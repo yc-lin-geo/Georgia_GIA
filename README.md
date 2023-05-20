@@ -18,6 +18,10 @@ git lfs install
 Once you installed git lfs, GEORGIA can be downloaded and installed by by:
 ```
 git lfs clone https://github.com/yc-lin-geo/Georgia_GIA.git
-cd GEROGIA_GIA
-
+cd Gerogia_GIA/
+pip install -r requirements.txt
 ```
+It should be noted that GEROGIA was written and tested with Python 3.9.7 and Jupyter Notebook 5.4.0.
+
+## File Descriptions
+* **GBR_Sediment.ipynb** - A notebook contains the code used for visualizing GBR relative sea level change and sediment deposition history
