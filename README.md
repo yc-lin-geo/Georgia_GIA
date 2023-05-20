@@ -1,3 +1,4 @@
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7951905.svg)](https://doi.org/10.5281/zenodo.7951905) 
 # GEORGIA: a Graph neural network based EmulatOR for Glacial Isostatic Adjustment
 
 This repository contains the Python code base for Lin et al., : "GEORGIA: a Graph neural network based EmulatOR for Glacial Isostatic Adjustment". 
