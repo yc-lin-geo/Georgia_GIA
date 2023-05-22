@@ -1,4 +1,4 @@
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7951905.svg)](https://doi.org/10.5281/zenodo.7951905) 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7957644.svg)](https://doi.org/10.5281/zenodo.7957644) 
 # GEORGIA: a Graph neural network based EmulatOR for Glacial Isostatic Adjustment
 
 This repository contains the Python code base for Lin et al., : "GEORGIA: a Graph neural network based EmulatOR for Glacial Isostatic Adjustment". 
@@ -22,7 +22,9 @@ git lfs clone https://github.com/yc-lin-geo/Georgia_GIA.git
 cd Gerogia_GIA/
 pip install -r requirements.txt
 ```
-It should be noted that GEROGIA was written and tested with Python 3.9.7 and Jupyter Notebook 5.4.0.
+Alternatively, a version GEORGIA along accompanied with our paper can be downloaded via [Zenodo](https://doi.org/10.5281/zenodo.7957644).
+
+It should be noted that GEROGIA was written and tested with Python 3.9.7 and Jupyter Notebook 5.4.0. 
 
 ## File Descriptions
 * **[GEORGIA_Tutorial.ipynb](./GEORGIA_Tutorial.ipynb)** - A notebook contains the tutorial to use GEORGIA to emulate RSL. It includes information about loading and preparing data for GEROGIA, visulising spatial temporal emulation error (Figures 2, 3 and S1, S4, S5 in the paper). Two illustrative examples of using GEORGIA to investigate palaeo sea-level problems are also provided. 
