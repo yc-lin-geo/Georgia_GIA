@@ -25,7 +25,7 @@ pip install -r requirements.txt
 It should be noted that GEROGIA was written and tested with Python 3.9.7 and Jupyter Notebook 5.4.0.
 
 ## File Descriptions
-* **[GEORGIA_Tutorial.ipynb](./GEORGIA_Tutorial.ipynb)** - A notebook contains the tutorial to use GEORGIA to emulate RSL. It includes information about loading and preparing data for GEROGIA, visulising spatial temporal emulation error (Figures 2, 3 and S1 in the paper). Two illustrative examples of using GEORGIA to investigate palaeo sea-level problems are also provided. 
+* **[GEORGIA_Tutorial.ipynb](./GEORGIA_Tutorial.ipynb)** - A notebook contains the tutorial to use GEORGIA to emulate RSL. It includes information about loading and preparing data for GEROGIA, visulising spatial temporal emulation error (Figures 2, 3 and S1, S4, S5 in the paper). Two illustrative examples of using GEORGIA to investigate palaeo sea-level problems are also provided. 
 * **data/healpix16_coord.csv** - A csv file contains coordinate for 16-degree Hierarchical Equal Area isoLatitude Pixelation (Healpix) of a sphere.
 * **data/heal16_input_mean.npy** - Mean ice history used to normalise input data ($\mu_{I}$).
 * **data/heal16_input_std.npy** - Standard deviation of ice history that is used to normalise input data ($\sigma_{I}$).
@@ -35,6 +35,9 @@ It should be noted that GEROGIA was written and tested with Python 3.9.7 and Jup
 * **data/healpix_test_output_norm.npy** - 150-member normalised output data from the testing set.
 * **data/ice_0_healpix16.npy** - Modern ice thickness expressed in 16-degree Healpix.
 * **data/modern_topo_healpix16.npy** - Modern topography data expressed in 16-degree Healpix.
+* **data/ice_model_input_norm.npy** - Normalised synthetic ice history for emulation.
+* **data/ice_model_output_norm.npy** - Normalised RSL output history from physics-based GIA model for comparison. 
+
 
 ## Co-authors
 * **Pippa Whitehouse**
