@@ -18,3 +18,4 @@ xarray==2022.11.0
 xskillscore==0.0.24
 zarr==2.13.3
 altair<5
+notebook
