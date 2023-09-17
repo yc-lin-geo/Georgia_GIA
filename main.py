@@ -1,9 +1,20 @@
 import streamlit as st
 import numpy as np
-from scipy import interpolate
+import pandas as pd
 import healpy as hp
 from matplotlib import pyplot as plt
-import os
+import matplotlib
+
+font = {'weight' : 'normal',
+        'size'   : 20,
+        'family':'Arial'}
+matplotlib.rcParams['xtick.major.size'] = 8
+matplotlib.rcParams['ytick.major.size'] = 8
+matplotlib.rcParams['axes.labelsize'] = 22
+matplotlib.rcParams['legend.frameon'] = 'False'
+matplotlib.rcParams['figure.figsize'] = (10,6)
+matplotlib.rc('font',**font)
+
 import torch
 #------------------Try to import a subroutine----------------------------
 import subprocess
@@ -22,19 +33,19 @@ except ModuleNotFoundError as e:
 st.set_page_config(layout="wide",page_title="GEORGIA")
 st.title("GEORGIA: a Graphic neural network based EmulatOR for Glacial Isostatic Adjustment")
 #st.sidebar.markdown("# Main page 🎈")
+
 st.markdown("""
+            
+            ###### by Yucheng Lin - yc.lin@rutgers.edu
+
             Welcome to GEORGIA: a Graphic neural network based EmulatOR for Glacial Isostatic Adjustment! This web-based app is designed to explore different North American Ice Sheet (NAIS) histories impact on global relative sea level. 
 
-            You can generate your own synthetic NAIS model by randomly combine 2 previously published NAIS models from: 0-ICE5G (Peltier et al., 2002), 1-ANU(Lambeck et al., 2017), 2-ICE6G_C (Peltier et al., 2015), 3-ICE7G_NA (Roy et al., 2017), 4-GLAC_1D 9894 (Tarasov et al., 2012), 5-GLAC1D_9927 (Tarasov et al., 2012), 6-PaleoMIST (Gowan et al., 2021), 7-NAICE (Gowan et al., 2017) and 8-Han_2021 (Han et al., 2021). You can see all available ice geometry by clicking 'Show all available ice geometry button on the bottom of right panel'. 
- 
-            You can use the slider bar on the left hand side to change the paramters to generate your synthetic ice history:
-            - NAIS index 1 and 2: Use these two parameters to combine two listed NAIS model above for a new NAIS model
-            - NAIS weighting factor 1 and 2: Use these two parameters to control relative weighting between the two selected ice model. Note, these two are relative weighting factor, i.e., 1 and 1 will produce the same ice history as 0.5 and 0.5, etc. 
-            - NAIS temporal factor 1 and 2: Use these two parameters to make the selected ice history deglaciate earlier (negative value) or later (positive value). 
-           - Ice history plotting time: Use this parameter to control which time slice you want to visualize. 
+            You can generate a synthetic North American Ice Model by combining any 2 ice models from previous studies: 0-ICE5G (Peltier et al., 2002), 1-ANU(Lambeck et al., 2017), 2-ICE6G_C (Peltier et al., 2015), 3-ICE7G_NA (Roy et al., 2017), 4-GLAC_1D 9894 (Tarasov et al., 2012), 5-GLAC1D_9927 (Tarasov et al., 2012), 6-PaleoMIST (Gowan et al., 2021), 7-NAICE (Gowan et al., 2017) and 8-Han_2021 (Han et al., 2021). 
 
-           Once you satisfy with the current synthetic ice history, you can click 'Run emulation' button on the bottom of left bar, which will automatically emulate the corresponding global relative sea-level change history by combining your synthetic ice history one specific Earth rheological model. Lastly, you can use the slider to change the time slice of relative sea level for visulization. 
-            """)
+            All available ice geometry can be found by clicking 'Show all available ice geometry button on the bottom of right panel, after emulation, you can visulize the RSL difference between your own ice model and the mean ice model. 
+
+            For more details, please check [original paper](https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2023GL103672) and [Github page](https://github.com/yc-lin-geo/Georgia_GIA/tree/master).
+             """)
 #----------------------Define Functions---------------------------
 def cal_ice_v(ice):
     '''This function is used to calculate ice volume
@@ -153,6 +164,7 @@ def create_random_combination(ice_matrices,random_factors):
     random_ice = np.average(ice_copy[random_index],weights = random_weights,axis=0)
     
     return random_ice
+
 def emulate_GIA():
     '''
     This function is used to emulate GIA based on a ice history
@@ -179,6 +191,7 @@ def emulate_GIA():
     #transfer normlized prediction back to original field
     st.session_state.rsl_syn_pred = st.session_state.rsl_syn[0,0]*st.session_state.heal16_output_std[:,None]+st.session_state.heal16_output_mean[:,None] 
     st.write('### Emulation complete! Click plotting for visulization!', unsafe_allow_html=True)       
+    del st.session_state.rsl_syn
 
 def plot_rsl_comparison():
     '''
@@ -214,23 +227,23 @@ def plot_rsl_comparison():
     figure7 =  plt.figure()
     st.session_state.mean_esl = cal_all_esl(st.session_state.modern_topo,st.session_state.rsl_mean_pred,st.session_state.mean_ice_his+st.session_state.modern_ice[None,:])
     st.session_state.syn_esl = cal_all_esl(st.session_state.modern_topo,st.session_state.rsl_syn_pred,st.session_state.syn_ice+st.session_state.modern_ice[None,:])
-    plt.title('Eustatic sea level history')
-    plt.plot(np.arange(25,-1,-1),-st.session_state.mean_esl,label='Mean ice ESL',linewidth=3)
-    plt.plot(np.arange(25,-1,-1),-st.session_state.syn_esl,label = 'Synthetic ice ESL',linewidth=3)
-    plt.vlines(st.session_state.rsl_plot_time,0,-130,color='k',label='Plotting Time',linewidth=3,linestyle = ':')
-    plt.legend()
+    plt.title('Barystatic sea level history')
+    plt.plot(np.arange(25,-1,-1),-st.session_state.mean_esl,label='Mean ice BSL',linewidth=5)
+    plt.plot(np.arange(25,-1,-1),-st.session_state.syn_esl,label = 'Synthetic ice ice',linewidth=5)
+    plt.vlines(st.session_state.rsl_plot_time,0,-130,color='k',label='Plotting Time',linewidth=5,linestyle = '--')
+    plt.legend(loc=3)
     figure8 =  plt.figure()
     plt.title('Relative sea level history at Barbados')
-    plt.plot(np.arange(25,-1,-1),st.session_state.rsl_mean_pred[1130,:],label='Mean ice Barbados RSL',linewidth=3)
-    plt.plot(np.arange(25,-1,-1),st.session_state.rsl_syn_pred[1130,:],label = 'Synthetic ice Barbados RSL',linewidth=3);
-    plt.vlines(st.session_state.rsl_plot_time,0,-130,color='k',label='Plotting Time',linewidth=3,linestyle = ':')
-    plt.legend()
+    plt.plot(np.arange(25,-1,-1),st.session_state.rsl_mean_pred[1130,:],label='Mean ice Barbados RSL',linewidth=5)
+    plt.plot(np.arange(25,-1,-1),st.session_state.rsl_syn_pred[1130,:],label = 'Synthetic ice Barbados RSL',linewidth=5);
+    plt.vlines(st.session_state.rsl_plot_time,0,-130,color='k',label='Plotting Time',linewidth=5,linestyle = '--')
+    plt.legend(loc=3)
     figure9 =  plt.figure()
     plt.title('Relative sea level history at Tahiti')
-    plt.plot(np.arange(25,-1,-1),st.session_state.rsl_mean_pred[2042,:],label='Mean ice Tahiti RSL',linewidth=3)
-    plt.plot(np.arange(25,-1,-1),st.session_state.rsl_syn_pred[2042,:],label = 'Synthetic ice Tahiti RSL',linewidth=3);
-    plt.vlines(st.session_state.rsl_plot_time,0,-130,color='k',label='Plotting Time',linewidth=3,linestyle = ':')
-    plt.legend()
+    plt.plot(np.arange(25,-1,-1),st.session_state.rsl_mean_pred[2042,:],label='Mean ice Tahiti RSL',linewidth=5)
+    plt.plot(np.arange(25,-1,-1),st.session_state.rsl_syn_pred[2042,:],label = 'Synthetic ice Tahiti RSL',linewidth=5);
+    plt.vlines(st.session_state.rsl_plot_time,0,-130,color='k',label='Plotting Time',linewidth=5,linestyle = '--')
+    plt.legend(loc=3)
     plt.tight_layout()
     #st.pyplot(fig) 
     container1 = st.container() 
@@ -265,6 +278,25 @@ def plot_rsl_comparison():
         with col9:
             figure9
 
+    output_data = {'Longitude': st.session_state.coord[:,0],
+                                'Latitude': st.session_state.coord[:,1]}
+    for i in range(26):
+        output_data['syn_rsl_(m)_'+str(25-i)+'_ka_BP'] = st.session_state.rsl_syn_pred[:,i]
+    
+    for i in range(26):
+        output_data['syn_ice_thickness_(m)_'+str(25-i) + '_ka_BP'] = st.session_state.syn_ice[i]
+
+
+    output_file = pd.DataFrame.from_dict(output_data).to_csv(index='False').encode('utf-8')
+
+    st.download_button(
+    label="Download data",
+    data=output_file,
+    file_name='GEROGIA_output.csv',
+    mime='text/csv',
+    on_click=style_button_row)
+
+
 #-----------------------Load Inputs-------------------------------
 @st.cache
 def load_model(max_entries=20):
@@ -273,6 +305,7 @@ def load_model(max_entries=20):
 	return model
 
 model = load_model()
+
 #Load mean and standard deviation for inputs and outputs for normlization
 st.session_state.heal16_input_mean = np.load('./data/heal16_input_mean.npy')
 st.session_state.heal16_input_std = np.load('./data/heal16_input_std.npy')
@@ -281,6 +314,7 @@ st.session_state.heal16_output_std = np.load('./data/heal16_output_std.npy')
 #Load mean ice history based on all training dataset and its corresponding RSL history for comparison
 st.session_state.mean_ice_his = np.load('./data/heal16_input_mean_his.npy')
 st.session_state.rsl_mean_pred = np.load('./data/healpix16_mean_ice_rsl.npy')
+st.session_state.coord = np.loadtxt('./data/healpix16_coord.csv',delimiter=',')
 
 #Load modern ice thickness and topography
 st.session_state.modern_topo = np.load('./data/modern_topo_healpix16.npy')
@@ -373,18 +407,21 @@ mean_ice_v = np.sum(cal_ice_v(mean_NA),axis=1)
 #Generate figures here
 all_ice_v = plt.figure()
 plot_index = 25-st.session_state.plot_time
-NA_model_name = ['ICE5G','ANU','ICE6G_C','ICE7G_NA','GLAC1D_9894','GLAC1D_9927','PaleoMIST','NAICE','Han_2021']
+NA_model_name = ['0-ICE5G','1-ANU','2-ICE6G_C','3-ICE7G_NA','4-GLAC1D_9894','5-GLAC1D_9927','6-PaleoMIST','7-NAICE','8-Han_2021']
 for i in range(len(st.session_state.healpix16_NA_matrices)):
     test_ice_v = np.sum(cal_ice_v(st.session_state.healpix16_NA_matrices[i]),axis=1)
-    plt.plot(np.arange(25,-1,-1),test_ice_v,label=NA_model_name[i])
-plt.plot(np.arange(25,-1,-1),mean_ice_v,color='grey',linestyle='--',linewidth=3,label='Mean ice history')
-plt.plot(np.arange(25,-1,-1),synthetic_ice_v,color='k',linewidth=3,linestyle='--',label='Synthetic ice history')
-plt.vlines(st.session_state.plot_time,0,4,color='steelblue',label='Plotting Time',linewidth=3,linestyle = ':')
-plt.xlabel('Time (ka BP)',fontsize=15)
-plt.ylabel('Ice volume (10$^9$ m$^3$)',fontsize=15)
+    if (i ==st.session_state.NA_1) or (i==st.session_state.NA_2):
+        plt.plot(np.arange(25,-1,-1),test_ice_v,label=NA_model_name[i],color='darkred',linewidth=2.5)
+    else:
+        plt.plot(np.arange(25,-1,-1),test_ice_v,color='grey',linewidth=0.6,alpha=0.6)
+
+plt.plot(np.arange(25,-1,-1),mean_ice_v,color='purple',linestyle='--',linewidth=3.5,label='Mean ice history')
+plt.plot(np.arange(25,-1,-1),synthetic_ice_v,color='k',linewidth=3.5,linestyle='--',label='Synthetic ice history')
+plt.vlines(st.session_state.plot_time,0,4,color='steelblue',label='Plotting Time',linewidth=3.5,linestyle = '--')
+plt.xlabel('Time (ka BP)')
+plt.ylabel('Ice volume (10$^9$ m$^3$)')
 plt.legend() 
-plt.title('Ice volume history',fontsize=15) 
- 
+plt.title('Ice volume history') 
  
 #ice_thick_max = 100*(np.max(st.session_state.healpix16_NA_matrices[:,plot_index])//100+1)
 ice_thick_max = 3500
@@ -412,11 +449,13 @@ with ice_his0:
     with coll111:
         Dif_ice_his
 
+
 expander =  st.expander("Show all available ice geometries at "+str(st.session_state.plot_time)+'ka BP')
+
 if expander.button("Plot all"):
     
     #All ice histories from previous studies
-    fig, axs = plt.subplots(2,5,figsize=(20, 5))
+    fig, axs = plt.subplots(2,5,figsize=(40, 10))
     plt.subplot(2,5,1)
 
     hp.mollview(st.session_state.healpix16_NA_matrices[0,plot_index],hold=True,max=ice_thick_max,min=0,title='ICE5G')
@@ -442,7 +481,8 @@ if expander.button("Plot all"):
     plt.tight_layout(pad=0.001, w_pad=0.0001, h_pad=0.001)
 
     st.pyplot(fig)
-   
+    
+
 #-----------------------------Start RSL emulation!-----------------------------
 with st.sidebar.form(key='my_form'):
     st.subheader('Start emulation based on the ice here above!')
@@ -454,5 +494,5 @@ with st.sidebar.form(key='my_form'):
                 key='rsl_plot_time')
     submit_button = st.form_submit_button(label='Plot emulation results!', on_click=plot_rsl_comparison)
     
-
+    
 
