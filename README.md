@@ -4,6 +4,7 @@
 This repository contains the Python code base for Lin et al., : "GEORGIA: a Graph neural network based EmulatOR for Glacial Isostatic Adjustment".
 
 Web App: https://yc-lin-geo-georgia-gia-main-debyup.streamlit.app/
+
 Paper: https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2023GL103672.
 
 **Project abstract:**
