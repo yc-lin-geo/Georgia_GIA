@@ -1,7 +1,10 @@
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7957644.svg)](https://doi.org/10.5281/zenodo.7957644) 
 # GEORGIA: a Graph neural network based EmulatOR for Glacial Isostatic Adjustment
 
-This repository contains the Python code base for Lin et al., : "GEORGIA: a Graph neural network based EmulatOR for Glacial Isostatic Adjustment". 
+This repository contains the Python code base for Lin et al., : "GEORGIA: a Graph neural network based EmulatOR for Glacial Isostatic Adjustment".
+
+Web App: https://yc-lin-geo-georgia-gia-main-debyup.streamlit.app/
+Paper: https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2023GL103672.
 
 **Project abstract:**
 > Glacial isostatic adjustment (GIA) modelling is not only useful for understanding past relative sea-level change but also for projecting future sea-level change due to ongoing land deformation. However, GIA model predictions are subject to ranges of uncertainties, including poorly-constrained global ice history. An effective way to reduce this uncertainty is to perform data-model comparisons over a large ensemble of possible ice histories, which is often prohibited by the limited computation resources. Here we address this problem by building a statistical GIA emulator that can mimic the behaviour of a physics-based GIA model (assuming a single 1-D Earth rheology) while being computationally cheap to evaluate. Based on deep learning algorithms, our emulator shows 0.54 m mean absolute error on 150 out-of-sample testing data with <0.5 seconds emulation time. Using this emulator, two illustrative applications related to calculate barystatic sea level are provided for use by the sea-level community. 
