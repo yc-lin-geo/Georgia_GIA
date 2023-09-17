@@ -42,7 +42,7 @@ st.markdown("""
 
             You can generate a synthetic North American Ice Model by combining any 2 ice models from previous studies: 0-ICE5G (Peltier et al., 2002), 1-ANU(Lambeck et al., 2017), 2-ICE6G_C (Peltier et al., 2015), 3-ICE7G_NA (Roy et al., 2017), 4-GLAC_1D 9894 (Tarasov et al., 2012), 5-GLAC1D_9927 (Tarasov et al., 2012), 6-PaleoMIST (Gowan et al., 2021), 7-NAICE (Gowan et al., 2017) and 8-Han_2021 (Han et al., 2021). 
 
-            All available ice geometry can be found by clicking 'Show all available ice geometry button on the bottom of right panel, after emulation, you can visulize the RSL difference between your own ice model and the mean ice model. 
+            All available ice geometry can be found by clicking 'Show all available ice geometry' button on the bottom of right panel, the synthetic North American ice model will then automatically paired with a default ice model for the rest of the world. After emulation, you can visulize the RSL difference between your own ice model and the mean ice model. 
 
             For more details, please check [original paper](https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2023GL103672) and [Github page](https://github.com/yc-lin-geo/Georgia_GIA/tree/master).
              """)
@@ -411,13 +411,13 @@ NA_model_name = ['0-ICE5G','1-ANU','2-ICE6G_C','3-ICE7G_NA','4-GLAC1D_9894','5-G
 for i in range(len(st.session_state.healpix16_NA_matrices)):
     test_ice_v = np.sum(cal_ice_v(st.session_state.healpix16_NA_matrices[i]),axis=1)
     if (i ==st.session_state.NA_1) or (i==st.session_state.NA_2):
-        plt.plot(np.arange(25,-1,-1),test_ice_v,label=NA_model_name[i],color='darkred',linewidth=2.5)
+        plt.plot(np.arange(25,-1,-1),test_ice_v,label=NA_model_name[i],linewidth=3.5,linestyle='--')
     else:
-        plt.plot(np.arange(25,-1,-1),test_ice_v,color='grey',linewidth=0.6,alpha=0.6)
+        plt.plot(np.arange(25,-1,-1),test_ice_v,color='grey',linewidth=0.6,alpha=0.6,linestyle='--')
 
-plt.plot(np.arange(25,-1,-1),mean_ice_v,color='purple',linestyle='--',linewidth=3.5,label='Mean ice history')
-plt.plot(np.arange(25,-1,-1),synthetic_ice_v,color='k',linewidth=3.5,linestyle='--',label='Synthetic ice history')
-plt.vlines(st.session_state.plot_time,0,4,color='steelblue',label='Plotting Time',linewidth=3.5,linestyle = '--')
+plt.plot(np.arange(25,-1,-1),mean_ice_v,color='purple',linewidth=4.5,label='Mean ice history')
+plt.plot(np.arange(25,-1,-1),synthetic_ice_v,color='k',linewidth=4.5,label='Synthetic ice history')
+plt.vlines(st.session_state.plot_time,0,4,color='pink',label='Plotting Time',linewidth=3.5,linestyle = '--')
 plt.xlabel('Time (ka BP)')
 plt.ylabel('Ice volume (10$^9$ m$^3$)')
 plt.legend() 
@@ -485,14 +485,14 @@ if expander.button("Plot all"):
 
 #-----------------------------Start RSL emulation!-----------------------------
 with st.sidebar.form(key='my_form'):
-    st.subheader('Start emulation based on the ice here above!')
-    submit_button = st.form_submit_button(label='Run emulation!', on_click=emulate_GIA)
+    st.subheader('Start emulation based on your own ice model:')
+    submit_button = st.form_submit_button(label='Run emulation', on_click=emulate_GIA)
     st.slider("Change plotting time for emulation results (1-24 ka BP)",
                 min_value = 1,
                 max_value = 24,
                 step=1,
                 key='rsl_plot_time')
-    submit_button = st.form_submit_button(label='Plot emulation results!', on_click=plot_rsl_comparison)
+    submit_button = st.form_submit_button(label='Plot emulation results', on_click=plot_rsl_comparison)
     
     
 
