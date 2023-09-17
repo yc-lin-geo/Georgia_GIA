@@ -5,12 +5,12 @@ This repository contains the Python code base for Lin et al., : "GEORGIA: a Grap
 
 Web App: https://yc-lin-geo-georgia-gia-main-debyup.streamlit.app/
 
-Paper: https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2023GL103672.
+Paper: https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2023GL103672
 
 **Project abstract:**
-> Glacial isostatic adjustment (GIA) modelling is not only useful for understanding past relative sea-level change but also for projecting future sea-level change due to ongoing land deformation. However, GIA model predictions are subject to ranges of uncertainties, including poorly-constrained global ice history. An effective way to reduce this uncertainty is to perform data-model comparisons over a large ensemble of possible ice histories, which is often prohibited by the limited computation resources. Here we address this problem by building a statistical GIA emulator that can mimic the behaviour of a physics-based GIA model (assuming a single 1-D Earth rheology) while being computationally cheap to evaluate. Based on deep learning algorithms, our emulator shows 0.54 m mean absolute error on 150 out-of-sample testing data with <0.5 seconds emulation time. Using this emulator, two illustrative applications related to calculate barystatic sea level are provided for use by the sea-level community. 
+> Glacial isostatic adjustment (GIA) modeling is not only useful for understanding past relative sea-level change but also for projecting future sea-level change due to ongoing land deformation. However, GIA model predictions are subject to a range of uncertainties, most notably due to uncertainty in the input ice history. An effective way to reduce this uncertainty is to perform data-model comparisons over a large ensemble of possible ice histories, but this is often impossible due to computational limitations. Here we address this problem by building a deep-learning-based GIA emulator that can mimic the behavior of a physics-based GIA model while being computationally cheap to evaluate. Assuming a single 1-D Earth rheology, our emulator shows 0.54 m mean absolute error on 150 out-of-sample testing data with <0.5 s emulation time. Using this emulator, two illustrative applications related to the calculation of barystatic sea level are provided for use by the sea-level community.
 
-If you have any questions, comments, or feedback on this work or code, please [contact Yucheng](mailto:yucheng.lin@durham.ac.uk)
+If you have any questions, comments, or feedback on this work or code, please [contact Yucheng](mailto:yc.lin@rutgers.edu)
 
 ## Installation
 
