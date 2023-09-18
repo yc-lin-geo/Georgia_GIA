@@ -2,7 +2,6 @@ cycler==0.11.0
 dask==2022.10.2
 deepdiff==6.2.1
 gpytorch==1.9.0
-healpy==1.16.1
 matplotlib==3.6.2
 numcodecs==0.10.2
 numpy==1.23.4
