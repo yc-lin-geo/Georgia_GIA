@@ -296,6 +296,9 @@ def plot_rsl_comparison():
 
 
 #-----------------------Load Inputs-------------------------------
+st.cache_data.clear()
+st.cache_resource.clear()
+
 @st.cache
 def load_model(max_entries=20):
 	#load emulator
