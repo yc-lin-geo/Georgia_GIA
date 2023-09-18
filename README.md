@@ -1,4 +1,4 @@
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7957644.svg)](https://doi.org/10.5281/zenodo.7957644) 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7957644.svg)](https://zenodo.org/record/8356229) 
 # GEORGIA: a Graph neural network based EmulatOR for Glacial Isostatic Adjustment
 
 This repository contains the Python code base for Lin et al., : "GEORGIA: a Graph neural network based EmulatOR for Glacial Isostatic Adjustment".
@@ -14,7 +14,7 @@ If you have any questions, comments, or feedback on this work or code, please [c
 
 ## Installation
 
-Because GEORGIA contains some data files that are larger than 25 Mb, you can download it from [Zenodo](https://doi.org/10.5281/zenodo.7957644). To download it from Github, we need the git lfs package, an open source Git extension for versioning large files. It can be downloaded through [this link](https://git-lfs.com/), and to install:
+Because GEORGIA contains some data files that are larger than 25 Mb, you can download it from [Zenodo](https://zenodo.org/record/8356229). To download it from Github, we need the git lfs package, an open source Git extension for versioning large files. It can be downloaded through [this link](https://git-lfs.com/), and to install:
 ```
 cd ~/Downloads/git-lfs-3.3.0/
 sudo ./install.sh
