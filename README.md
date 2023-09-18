@@ -30,6 +30,8 @@ Generate a virtual environmental for GEORGIA through [conda](https://docs.conda.
 conda create --name GEORGIA python=3.9
 conda activate GEORGIA
 pip install -r requirements.txt
+conda config --add channels conda-forge
+conda install healpy
 ```
 
 It should be noted that GEROGIA was written and tested with Python 3.9.7 and Jupyter Notebook 5.4.0. 
