@@ -25,7 +25,7 @@ Once you installed git lfs, GEORGIA can be downloaded and installed by by:
 git lfs clone https://github.com/yc-lin-geo/Georgia_GIA.git
 cd Gerogia_GIA/
 ```
-Generate a virtual environmental for GEORGIA through [conda](https://docs.conda.io/en/latest/):
+Generate a virtual environmental for GEORGIA through [conda]([https://docs.conda.io/en/latest/](https://conda.io/projects/conda/en/latest/user-guide/install/index.html)):
 ```
 conda create --name GEORGIA python=3.9
 conda activate GEORGIA
