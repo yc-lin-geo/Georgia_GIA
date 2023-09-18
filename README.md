@@ -14,7 +14,7 @@ If you have any questions, comments, or feedback on this work or code, please [c
 
 ## Installation
 
-Because GEORGIA contains some data files that are larger than 25 Mb, it should be downloaded with git lfs package, an open source Git extension for versioning large files. It can be downloaded through [this link](https://git-lfs.com/), and to install:
+Because GEORGIA contains some data files that are larger than 25 Mb, you can download it from [Zenodo](https://doi.org/10.5281/zenodo.7957644). To download it from Github, we need the git lfs package, an open source Git extension for versioning large files. It can be downloaded through [this link](https://git-lfs.com/), and to install:
 ```
 cd ~/Downloads/git-lfs-3.3.0/
 sudo ./install.sh
@@ -31,7 +31,6 @@ conda create --name GEORGIA python=3.9
 conda activate GEORGIA
 pip install -r requirements.txt
 ```
-Alternatively, a version GEORGIA along accompanied with our paper can be downloaded via [Zenodo](https://doi.org/10.5281/zenodo.7957644).
 
 It should be noted that GEROGIA was written and tested with Python 3.9.7 and Jupyter Notebook 5.4.0. 
 
