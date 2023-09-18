@@ -6,8 +6,7 @@ from matplotlib import pyplot as plt
 import matplotlib
 
 font = {'weight' : 'normal',
-        'size'   : 20,
-        'family':'Arial'}
+        'size'   : 20}
 matplotlib.rcParams['xtick.major.size'] = 8
 matplotlib.rcParams['ytick.major.size'] = 8
 matplotlib.rcParams['axes.labelsize'] = 22
