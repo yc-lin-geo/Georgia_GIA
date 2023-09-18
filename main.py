@@ -292,8 +292,7 @@ def plot_rsl_comparison():
     label="Download data",
     data=output_file,
     file_name='GEROGIA_output.csv',
-    mime='text/csv',
-    on_click=style_button_row)
+    mime='text/csv')
 
 
 #-----------------------Load Inputs-------------------------------
