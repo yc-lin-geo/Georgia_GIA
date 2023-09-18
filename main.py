@@ -395,7 +395,6 @@ st.sidebar.slider("Ice history plotting time (1-24 ka BP)",
 
 #-----------------------Plotting different ice models-----------------------
 st.write('### North American ice history at '+str(st.session_state.plot_time)+' ka BP')
-st.experimental_singleton.clear()
 #calculate synthetic ice volume 
 synthetic_ice = create_random_combination(st.session_state.healpix16_NA_matrices,[st.session_state.NA_1,st.session_state.NA_2,
                  st.session_state.NA_w_1,st.session_state.NA_w_2,st.session_state.NA_r_1,st.session_state.NA_r_2])
