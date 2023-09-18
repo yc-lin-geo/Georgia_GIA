@@ -13,6 +13,7 @@ Paper in GRL: https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2023GL103
 If you have any questions, comments, or feedback on this work or code, please [contact Yucheng](mailto:yc.lin@rutgers.edu)
 
 ## Installation
+[Video Guide](https://www.youtube.com/watch?v=qd2kSepYVuU)
 
 Because GEORGIA contains some data files that are larger than 25 Mb, you can download it from [Zenodo](https://zenodo.org/record/8356229). To download it from Github, we need the git lfs package, an open source Git extension for versioning large files. It can be downloaded through [this link](https://git-lfs.com/), and to install:
 ```
