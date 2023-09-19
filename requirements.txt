@@ -19,3 +19,4 @@ zarr==2.13.3
 altair<5
 notebook
 healpy
+torchmetrics
