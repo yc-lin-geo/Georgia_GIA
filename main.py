@@ -35,7 +35,9 @@ st.markdown("###### by Yucheng Lin - yc.lin@rutgers.edu ")
 #st.sidebar.markdown("# Main page 🎈")
 st.markdown("""
             Welcome to GEORGIA: a Graphic neural network based EmulatOR for Glacial Isostatic Adjustment! This web-based API is designed to explore different North American Ice Sheet (NAIS) histories impact on global relative sea level. 
-           """)
+           
+            See more details in [paper](https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2023GL103672) and [Github](https://github.com/yc-lin-geo/Georgia_GIA/tree/master).
+            """)
 
 # Expander Styling
 
