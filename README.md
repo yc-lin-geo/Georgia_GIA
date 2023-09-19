@@ -38,7 +38,7 @@ It should be noted that GEROGIA was written and tested with Python 3.9.7 and Jup
 
 ## GEORGIA API
 
-<img src="https://github.com/yc-lin-geo/Georgia_GIA/blob/master/data/API.png " width="1000" height="450">
+<img src="https://github.com/yc-lin-geo/Georgia_GIA/blob/master/data/API.png " width="1000" height="500">
 
 We created a GEORGIA API that allows you to easily generate a North American Ice Sheet model of your own choice and calculate the corresponding global sea-level change. 
 
