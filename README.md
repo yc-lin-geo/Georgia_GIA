@@ -3,7 +3,6 @@
 
 This repository contains the Python code base for Lin et al., 2023: "GEORGIA: a Graph neural network based EmulatOR for Glacial Isostatic Adjustment".
 
-Web App: https://yc-lin-geo-georgia-gia-main-debyup.streamlit.app/
 
 Paper in GRL: https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2023GL103672
 
@@ -36,6 +35,18 @@ conda install healpy
 ```
 
 It should be noted that GEROGIA was written and tested with Python 3.9.7 and Jupyter Notebook 5.4.0. 
+
+## GEORGIA API
+
+<img src="https://github.com/yc-lin-geo/Georgia_GIA/blob/master/data/API.png " width="1000" height="500">
+
+We created a GEORGIA API that allows you to easily generate a North American Ice Sheet model of your own choice and calculate the corresponding global sea-level change. 
+
+API video tutorial: https://www.youtube.com/watch?v=J2rAPckk0yU&t=10s
+
+Web App: https://yc-lin-geo-georgia-gia-main-debyup.streamlit.app/
+
+Note the web based app might be broken due to large calculation amount, the more stable choice is istalling GEORGIA on local environment.
 
 ## File Descriptions
 * **GEORGIA_Tutorial.ipynb** - A notebook contains the tutorial to use GEORGIA to emulate RSL. It includes information about loading and preparing data for GEROGIA, visulising spatial temporal emulation error (Figures 2, 3 and S1, S4, S5 in the paper). Two illustrative examples of using GEORGIA to investigate palaeo sea-level problems are also provided. 
