@@ -14,21 +14,13 @@ If you have any questions, comments, or feedback on this work or code, please [c
 ## Installation
 [Video Guide](https://www.youtube.com/watch?v=qd2kSepYVuU)
 
-Because GEORGIA contains some data files that are larger than 25 Mb, you can download it from [Zenodo](https://zenodo.org/record/8356229). To download it from Github, we need the git lfs package, an open source Git extension for versioning large files. It can be downloaded through [this link](https://git-lfs.com/), and to install:
-```
-cd ~/Downloads/git-lfs-3.3.0/
-sudo ./install.sh
-git lfs install
-```
-Once you installed git lfs, GEORGIA can be downloaded and installed by by:
-```
-git lfs clone https://github.com/yc-lin-geo/Georgia_GIA.git
-cd Gerogia_GIA/
-```
-Generate a virtual environmental for GEORGIA through [conda](https://conda.io/projects/conda/en/latest/user-guide/install/index.html):
+Because GEORGIA contains some data files that are larger than 25 Mb, you should download it from [Zenodo](https://zenodo.org/record/8356229). 
+
+Once you installed GEORGIA and extract it, generate a virtual environmental for GEORGIA through [conda](https://conda.io/projects/conda/en/latest/user-guide/install/index.html):
 ```
 conda create --name GEORGIA python=3.9
 conda activate GEORGIA
+cd Gerogia_GIA/
 pip install -r requirements.txt
 conda config --add channels conda-forge
 conda install healpy
