@@ -20,3 +20,5 @@ altair<5
 notebook
 healpy
 torchmetrics
+seaborn
+torchmetrics
