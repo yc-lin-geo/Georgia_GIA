@@ -36,8 +36,6 @@ We created a GEORGIA API that allows you to easily generate a North American Ice
 
 API video tutorial: https://www.youtube.com/watch?v=J2rAPckk0yU&t=10s
 
-Web App: https://yc-lin-geo-georgia-gia-main-debyup.streamlit.app/
-
 Note the web based app might be broken due to large calculation amount, the more stable choice is installing GEORGIA on a local environment.
 
 ## File Descriptions
