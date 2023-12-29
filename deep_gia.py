@@ -25,7 +25,7 @@ def cal_esl(topo,ice):
     
     grounded_ice =  ice*ocean_f
     ice_below_flotation = topo*(pho_water/pho_ice)*ocean_f*ocean_f2 
-    effective_ice = grounded_ice+ice_below_flotation
+    #effective_ice = grounded_ice+ice_below_flotation
     effective_ice_v = effective_ice*grid_area
     esl = np.sum(effective_ice_v)/ocean_area
     return esl
