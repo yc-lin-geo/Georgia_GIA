@@ -29,7 +29,7 @@ def cal_esl(topo,ice):
     effective_ice_v = effective_ice*grid_area
     esl = np.sum(effective_ice_v)/ocean_area
     return esl
-def cal_all_esl(modern_topo,all_rsl_pred,all_ice):
+def cal_all_bsl(modern_topo,all_rsl_pred,all_ice):
     '''This function is used to calculate eustatic sea level change history based on 
     reconstructed paleo topography from paleo relative sea level prediction and ice history
     
