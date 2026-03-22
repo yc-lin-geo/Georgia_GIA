@@ -9,7 +9,7 @@ Paper in GRL: https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2023GL103
 **Project abstract:**
 > Glacial isostatic adjustment (GIA) modeling is not only useful for understanding past relative sea-level change but also for projecting future sea-level change due to ongoing land deformation. However, GIA model predictions are subject to a range of uncertainties, most notably due to uncertainty in the input ice history. An effective way to reduce this uncertainty is to perform data-model comparisons over a large ensemble of possible ice histories, but this is often impossible due to computational limitations. Here we address this problem by building a deep-learning-based GIA emulator that can mimic the behavior of a physics-based GIA model while being computationally cheap to evaluate. Assuming a single 1-D Earth rheology, our emulator shows 0.54 m mean absolute error on 150 out-of-sample testing data with <0.5 s emulation time. Using this emulator, two illustrative applications related to the calculation of barystatic sea level are provided for use by the sea-level community.
 
-If you have any questions, comments, or feedback on this work or code, please [contact Yucheng](mailto:yc.lin@rutgers.edu)
+If you have any questions, comments, or feedback on this work or code, please [contact Yucheng](mailto:snqz1358@gmail.com)
 
 ## Installation
 [Video Guide](https://www.youtube.com/watch?v=qd2kSepYVuU)
